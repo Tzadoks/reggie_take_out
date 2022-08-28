@@ -1,0 +1,33 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: reggie_take_out
+
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://192.168.150.128:3306/reggie
+      username: root
+      password: "000000"
+  servlet:
+    multipart:
+      enabled: true
+      # 设置支持的单个上传文件的大小限制
+      max-file-size: 2MB
+      # 设置最大的请求文件大小，设置总体大小请求
+      max-request-size: 10MB
+      # 临时路径
+      location: /
+      # 文件写入磁盘的阈值
+      file-size-threshold: 0B
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # \u914D\u7F6E\u9A7C\u5CF0\u547D\u540D
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      id-type: assign_id
