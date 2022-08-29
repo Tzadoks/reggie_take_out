@@ -8,7 +8,7 @@ spring:
   datasource:
     druid:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://192.168.150.128:3306/reggie
+      url: jdbc:mysql://localhost:3306/reggie
       username: root
       password: "000000"
   servlet:
