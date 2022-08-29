@@ -1,7 +1,6 @@
 package com.tzadok.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.tzadok.common.CustomException;
 import com.tzadok.mapper.CategoryMapper;

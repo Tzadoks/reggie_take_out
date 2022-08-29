@@ -4,13 +4,42 @@ server:
 spring:
   application:
     name: reggie_take_out
+#  datasource:
+#    druid:
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+#      url: jdbc:mysql://localhost:3306/reggie
+#      username: root
+#      password: "000000"
+  shardingsphere:
+    datasource:
+      names: master,slave
+      #主数据源
+      master:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://192.168.80.101:3306/reggie?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
 
-  datasource:
-    druid:
-      driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/reggie
-      username: root
-      password: "000000"
+        username: root
+        password: "000000"
+
+      #从主数据源
+      slave:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://192.168.80.102:3306/reggie?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+
+        username: root
+        password: "000000"
+    masterslave:
+      load-balance-algorithm-type: round_robin
+      name: dataSource
+      slave-data-source-names: slave
+      master-data-source-name: master
+    props:
+      sql:
+        show: true
+  main:
+    allow-bean-definition-overriding: true
   servlet:
     multipart:
       enabled: true
@@ -40,3 +69,4 @@ mybatis-plus:
   global-config:
     db-config:
       id-type: assign_id
+
