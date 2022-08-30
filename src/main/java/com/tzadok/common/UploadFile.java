@@ -1,5 +1,6 @@
 package com.tzadok.common;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.system.ApplicationHome;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
@@ -17,6 +18,9 @@ import java.util.UUID;
 @Component
 public class UploadFile {
 
+    @Value("${reggie.path}")
+    private String imgPath;
+
     public String getSavePath() {
         // 这里需要注意的是ApplicationHome是属于SpringBoot的类
         // 获取项目下resources/static/img路径
@@ -24,7 +28,7 @@ public class UploadFile {
 
         // 保存目录位置根据项目需求可随意更改
         return applicationHome.getDir().getParentFile()
-                .getParentFile().getAbsolutePath() + "\\src\\main\\resources\\static\\img\\";
+                .getParentFile().getAbsolutePath() + imgPath;
 
 //        return "D:\\Spring\\Springboot2\\Springboot_pro\\reggie_img";
     }
