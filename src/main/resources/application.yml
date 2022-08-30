@@ -17,8 +17,7 @@ spring:
       master:
         type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://192.168.80.101:3306/reggie?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
-
+        url: jdbc:mysql://192.168.80.100:3306/reggie
         username: root
         password: "000000"
 
@@ -26,8 +25,7 @@ spring:
       slave:
         type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://192.168.80.102:3306/reggie?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
-
+        url: jdbc:mysql://192.168.80.150:3306/reggie
         username: root
         password: "000000"
     masterslave:

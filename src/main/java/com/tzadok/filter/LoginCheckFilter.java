@@ -5,6 +5,7 @@ import com.tzadok.common.BaseContext;
 import com.tzadok.common.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.AntPathMatcher;
+import org.springframework.web.method.HandlerMethod;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
@@ -36,13 +37,18 @@ public class LoginCheckFilter implements Filter {
 
         //定义不需要请求的路径
         String[] urls = new String[]{
-          "/employee/login",
-          "/employee/logout",
-          "/backend/**",
-          "/front/**",
-          "/user/sendMsg",
-          "/user/login"
+            "/employee/login",
+            "/employee/logout",
+            "/backend/**",
+            "/front/**",
+            "/user/sendMsg",
+            "/user/login",
+            "/doc.html",
+            "/webjars/**",
+            "/swagger/resources",
+            "/v2/api-docs"
         };
+
         //2.判断本次请求是否需要被处理
         boolean check = check(urls, requestURI);
         //3.不需要直接放行
