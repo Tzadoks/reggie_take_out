@@ -69,5 +69,5 @@ mybatis-plus:
       id-type: assign_id
 
 reggie:
-  path: /usr/local/app/img
+  path: /usr/local/app/img/
 

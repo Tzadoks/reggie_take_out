@@ -19,7 +19,7 @@ import java.util.UUID;
 public class UploadFile {
 
     @Value("${reggie.path}")
-    private String imgPath;
+    private String basePath;
 
     public String getSavePath() {
         // 这里需要注意的是ApplicationHome是属于SpringBoot的类
@@ -27,8 +27,10 @@ public class UploadFile {
         ApplicationHome applicationHome = new ApplicationHome(this.getClass());
 
         // 保存目录位置根据项目需求可随意更改
-        return applicationHome.getDir().getParentFile()
-                .getParentFile().getAbsolutePath() + imgPath;
+//        return applicationHome.getDir().getParentFile()
+//                .getParentFile().getAbsolutePath() + imgPath;
+
+        return basePath;
 
 //        return "D:\\Spring\\Springboot2\\Springboot_pro\\reggie_img";
     }
