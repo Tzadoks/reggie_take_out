@@ -62,7 +62,6 @@ public class UserController {
 
             return Result.success("手机验证码短信发送成功,验证码{" + code + "}");
         }
-
         return Result.error("短信发送失败");
     }
 
